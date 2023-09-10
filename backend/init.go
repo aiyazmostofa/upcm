@@ -84,14 +84,14 @@ func generate(path string) {
 	for i, v := range contest.Problems {
 		problem := Problem{}
 		if len(v.Title) == 0 {
-			fmt.Println("title for problem " + fmt.Sprint(i) + " does not exist")
+			fmt.Println("title for problem " + fmt.Sprint(i+1) + " does not exist")
 		}
 		problem.Title = v.Title
 
 		if len(v.InputName) > 0 {
 			bytes, err = os.ReadFile(v.InputName)
 			if err != nil {
-				fmt.Println("input for problem " + fmt.Sprint(i) + " does not exist")
+				fmt.Println("input for problem " + fmt.Sprint(i+1) + " does not exist")
 				return
 			}
 			problem.Input = string(bytes)
@@ -100,16 +100,15 @@ func generate(path string) {
 
 		bytes, err = os.ReadFile(v.OutputName)
 		if err != nil {
-
-			fmt.Println("output for problem " + fmt.Sprint(i) + " does not exist")
+			fmt.Println("output for problem " + fmt.Sprint(i+1) + " does not exist")
 			return
 		}
 		problem.Output = string(bytes)
-		problem.ID = uint(i)
+		problem.ID = uint(i+1)
 
 		res := d.Create(&problem)
 		if res.RowsAffected < 1 {
-			fmt.Println("failed to create problem " + fmt.Sprint(i))
+			fmt.Println("failed to create problem " + fmt.Sprint(i+1))
 			return
 		}
 	}

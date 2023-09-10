@@ -19,8 +19,9 @@
     async function handleSubmit(event) {
         const form = event.currentTarget;
         let status = 200;
+
         let response = await fetch(
-            new URL(api.BASE + "/submissions?token=" + get(stores.user).token),
+            api.BASE + "/submissions?token=" + get(stores.user).token,
             {
                 method: "POST",
                 body: new FormData(form),

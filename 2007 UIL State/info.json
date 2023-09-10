@@ -1,0 +1,70 @@
+{
+    "title": "2007 UIL State",
+    "problems": [
+        {
+            "title": "Dry Run",
+            "inputName": "dryrun.in",
+            "outputName": "dryrun.out"
+        },
+        {
+            "title": "Detention",
+            "inputName": "",
+            "outputName": "boring.out"
+        },
+        {
+            "title": "Capitals",
+            "inputName": "capital.in",
+            "outputName": "capital.out"
+        },
+        {
+            "title": "The Chase",
+            "inputName": "chase.in",
+            "outputName": "chase.out"
+        },
+        {
+            "title": "Decryptonomicon",
+            "inputName": "decrypt.in",
+            "outputName": "decrypt.out"
+        },
+        {
+            "title": "Disco Stew",
+            "inputName": "disco.in",
+            "outputName": "disco.out"
+        },
+        {
+            "title": "Factor Faster",
+            "inputName": "factor.in",
+            "outputName": "factor.out"
+        },
+        {
+            "title": "Flower Power",
+            "inputName": "flower.in",
+            "outputName": "flower.out"
+        },
+        {
+            "title": "Mmmmmath",
+            "inputName": "math.in",
+            "outputName": "math.out"
+        },
+        {
+            "title": "Chilly Rock",
+            "inputName": "rock.in",
+            "outputName": "rock.out"
+        },
+        {
+            "title": "Super Shipping",
+            "inputName": "shipping.in",
+            "outputName": "shipping.out"
+        },
+        {
+            "title": "Global Warming",
+            "inputName": "warming.in",
+            "outputName": "warming.out"
+        },
+        {
+            "title": "What Did You Say?",
+            "inputName": "what.in",
+            "outputName": "what.out"
+        }
+    ]
+}

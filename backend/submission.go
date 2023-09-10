@@ -84,8 +84,8 @@ func createSubmission(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	r.Body = http.MaxBytesReader(w, r.Body, 32<<10)
-	if err := r.ParseMultipartForm(32 << 10); err != nil {
+	r.Body = http.MaxBytesReader(w, r.Body, 200<<10)
+	if err := r.ParseMultipartForm(200 << 10); err != nil {
 		BadRequest(w, "request too big or request not proper multipart form")
 		return
 	}

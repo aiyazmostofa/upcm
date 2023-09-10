@@ -5,7 +5,7 @@ const BASE = import.meta.env.PROD ? "/api" : "http://localhost:3000/api";
 
 async function httpRequest(route, params, method) {
     params.token = get(stores.user).token
-    let status = 200;
+    let status = 200
     return await fetch(
         BASE + route + "?" + new URLSearchParams(params), { method: method })
         .then((response) => {
