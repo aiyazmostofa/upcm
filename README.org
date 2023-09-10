@@ -1,0 +1,5 @@
+* UIL Programming Contest Manager
+** README + API DOCS COMING SOON!
+
+** LICENSE
+[[file:LICENSE][GNU General Public License v3.0]]

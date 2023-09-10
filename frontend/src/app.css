@@ -1,0 +1,24 @@
+* {
+    font-family: monospace;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    width: min(65ch, 100% - 4rem);
+    margin-inline: auto;
+}
+
+td, th {
+    text-align: center;
+}
+
+table, td, th {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: .375em;
+}
