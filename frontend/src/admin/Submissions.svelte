@@ -59,7 +59,7 @@
             if (attempt.right) continue;
             if (submission.verdict == "Correct Answer") {
                 if (!scores.hasOwnProperty(submission.username))
-                    scores[submission.username] = 60;
+                    scores[submission.username] += 60;
                 scores[submission.username] -= Math.min(5 * attempt.wrong, 60);
                 attempt.right = true;
            } else {
