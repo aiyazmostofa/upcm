@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf build
 cd frontend
 npm run build
 mv dist/ ..

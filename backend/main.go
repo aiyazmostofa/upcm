@@ -79,6 +79,11 @@ func main() {
 	}
 
 	r.Handle("/*", http.StripPrefix("/", http.FileServer((http.FS(sub)))))
+	if _, err := os.Stat("data"); !os.IsNotExist(err) {
+		fs := http.FileServer(http.Dir("data"))
+		fmt.Println("detected data folder")
+		r.Handle("/data/*", http.StripPrefix("/data/", fs))
+	}
 	http.ListenAndServe(":3000", r)
 }
 
