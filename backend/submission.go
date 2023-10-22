@@ -9,6 +9,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/render"
+	"gorm.io/gorm"
 )
 
 type Submission struct {
@@ -33,6 +34,7 @@ type ESubmission struct {
 func submissionRouter() http.Handler {
 	r := chi.NewRouter()
 	r.Get("/", getSubmissions)
+	r.Get("/best", getSubmissionsBest)
 	r.Get("/{submissionID:[0-9]+}", getSubmission)
 	r.Post("/", createSubmission)
 	return r
@@ -53,6 +55,34 @@ func getSubmissions(w http.ResponseWriter, r *http.Request) {
 	}
 
 	render.JSON(w, r, e)
+}
+
+func getSubmissionsBest(w http.ResponseWriter, r *http.Request) {
+	user := r.Context().Value("user").(User)
+	var submissions []struct {
+		ID        uint      `json:"ID"`
+		UserID    uint      `json:"userID"`
+		Username  string    `json:"username"`
+		ProblemID uint      `json:"problemID"`
+		FileName  string    `json:"file_name"`
+		Title     string    `json:"title"`
+		Timestamp time.Time `json:"timestamp"`
+		Verdict   string    `json:"verdict"`
+	}
+
+	var res *gorm.DB
+	if user.AuthLevel == "Team" {
+		res = d.Raw("SELECT submissions.id,user_id,username,title,problem_id,timestamp,verdict,file_name FROM submissions INNER JOIN users ON users.id = submissions.user_id INNER JOIN problems ON problems.id = submissions.problem_id WHERE users.id = ?", user.ID).Scan(&submissions)
+	} else {
+		res = d.Raw("SELECT submissions.id,user_id,username,title,problem_id,timestamp,verdict,file_name FROM submissions INNER JOIN users ON users.id = submissions.user_id INNER JOIN problems ON problems.id = submissions.problem_id").Scan(&submissions)
+	}
+
+	if res.Error != nil {
+		InternalServerError(w, res.Error.Error())
+		return
+	}
+
+	render.JSON(w, r, submissions)
 }
 
 func getSubmission(w http.ResponseWriter, r *http.Request) {

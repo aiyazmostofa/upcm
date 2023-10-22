@@ -1,26 +1,28 @@
 <script>
-    import Login from "./Login.svelte";
-    import Team from "./team/Team.svelte";
-    import Admin from "./admin/Admin.svelte";
-    import stores from "./stores";
+  import Login from "./Login.svelte";
+  import Team from "./team/Team.svelte";
+  import Admin from "./admin/Admin.svelte";
+  import stores from "./stores";
 
-    let user = {
-        token: "",
-        authLevel: "",
-        ID: "",
-    };
+  let user = {
+    token: "",
+    authLevel: "",
+    ID: "",
+  };
 
-    stores.user.subscribe((v) => {
-        user = v;
-    });
+  stores.user.subscribe((v) => {
+    user = v;
+  });
 </script>
 
-{#if user.token}
+<main>
+  {#if user.token}
     {#if user.authLevel == "Admin"}
-        <Admin />
+      <Admin />
     {:else}
-        <Team />
+      <Team />
     {/if}
-{:else}
+  {:else}
     <Login />
-{/if}
+  {/if}
+</main>

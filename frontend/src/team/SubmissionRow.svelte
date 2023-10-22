@@ -14,7 +14,7 @@
 </script>
 
 <tr>
-    <td>{submission.problemTitle}</td>
+    <td>{submission.title}</td>
     <td>{submission.timestamp}</td>
     <td>{submission.verdict}</td>
     <td

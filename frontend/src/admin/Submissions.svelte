@@ -7,9 +7,9 @@
   let submissions = [];
 
   async function updateSubmissions() {
-    submissions = (await api.GET("/submissions", {})).body;
-    submissions = await fill(submissions);
+    submissions = (await api.GET("/submissions/best", {})).body;
     scores = await calculateScores(submissions);
+    submissions = await fill(submissions);
     submissions = submissions.reverse();
   }
 
@@ -20,12 +20,6 @@
   async function fill(submissions) {
     for (let i = 0; i < submissions.length; i++) {
       let submission = submissions[i];
-      submission.username = (
-        await api.GET("/users/" + submission.userID, {})
-      ).body.username;
-      submission.problemTitle = (
-        await api.GET("/problems/" + submission.problemID, {})
-      ).body.title;
       submission.timestamp = new Date(Date.parse(submission.timestamp));
       submission.timestamp = time.format(submission.timestamp);
     }

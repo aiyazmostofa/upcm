@@ -10,7 +10,6 @@
         let response = await api.GET("/token", { username, password });
 
         if (response.status == 200) {
-            console.log(response.body);
             stores.user.set(response.body);
         } else {
             error = response.body;
@@ -19,7 +18,7 @@
 </script>
 
 <h1>UIL Programming Contest Manager</h1>
-<h2>Login</h2>
+<h3>Login</h3>
 
 <form on:submit|preventDefault={login}>
     <label for="username">Username: </label>

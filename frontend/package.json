@@ -11,5 +11,8 @@
     "svelte": "^3.58.0",
     "svelte-routing": "^2.3.0",
     "vite": "^4.2.1"
+  },
+  "dependencies": {
+    "sakura.css": "^1.5.0"
   }
 }
