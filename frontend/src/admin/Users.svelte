@@ -31,7 +31,6 @@
     <h3>Users</h3>
     <table>
         <tr>
-            <th>ID</th>
             <th>Username</th>
             <th>Password</th>
             <th>Auth Level</th>

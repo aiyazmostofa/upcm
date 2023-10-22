@@ -65,7 +65,6 @@
         <td><button on:click={deleteUser}>Delete</button></td>
         <td>{message}</td>
     {:else}
-        <td>{user.ID}</td>
         <td>{user.username}</td>
         <td>{user.password}</td>
         <td>{user.authLevel}</td>

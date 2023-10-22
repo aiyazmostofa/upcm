@@ -1,0 +1,21 @@
+dialog {
+    padding: 0.5em;
+    color: #d9d8dc;
+    background-color: #120c0e;
+    border-color: #40363a;
+    border-width: 1px;
+  }
+
+  dialog > pre {
+    margin-bottom: 0.5em;
+  }
+
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  dialog > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

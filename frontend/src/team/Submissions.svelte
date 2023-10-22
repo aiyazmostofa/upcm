@@ -100,7 +100,7 @@
     <th>Solution</th>
   </tr>
   {#each submissions as submission}
-    <SubmissionRow {submission} />
+    <SubmissionRow bind:submission />
   {/each}
 </table>
 <br />
