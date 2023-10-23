@@ -43,7 +43,6 @@
 
 <tr style={here ? "" : "display: none;"}>
     {#if edit}
-        <td>{user.ID}</td>
         <td
             ><input
                 style="width: 6rem"
